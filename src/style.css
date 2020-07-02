@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: #76ead7;
+  background-color: rgba(118, 234, 215, 0.5);
 }
 
 h1 {
@@ -23,8 +23,9 @@ h1 {
 }
 
 button {
-  background-color: #c4fb6d;
-  color: #393e46;
+  background-color: #393e46;
+  color: #c4fb6d;
+  margin: 0 auto;
 }
 
 li {
@@ -32,9 +33,11 @@ li {
 }
 
 .temperature {
-  font-size: 40px;
+  font-size: 50px;
+  font-weight: 300;
 }
 
 .unit {
   font-size: 20px;
+  position: relative;
 }
