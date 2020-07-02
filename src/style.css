@@ -1,0 +1,38 @@
+body {
+  background-color: #76ead7;
+}
+
+.weatherapp {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 4px solid #393e46;
+  border-radius: 10px;
+  font-family: "Noto Serif", Serif;
+  background-color: #eeeeee;
+  color: #393e46;
+}
+h1 {
+  font-weight: 700px;
+}
+.footer {
+  margin: 0 auto;
+  text-align: center;
+}
+
+button {
+  background-color: #c4fb6d;
+  color: #393e46;
+}
+
+li {
+  list-style: none;
+}
+
+.temperature {
+  font-size: 40px;
+}
+
+.unit {
+  font-size: 20px;
+}
