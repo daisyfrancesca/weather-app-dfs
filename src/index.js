@@ -23,7 +23,6 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("#city");
@@ -42,6 +41,5 @@ function displayTemperature(response) {
 
 let apiKey = "d643ee59f43b44ad31e57464532264d8";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=imperial`;
-console.log(apiUrl);
 
 axios.get(apiUrl).then(displayTemperature);
