@@ -23,9 +23,25 @@
     <div class="container">
       <div class="weatherapp">
         <h1>Weather in <span class="city" id="city">Your City</span></h1>
-        <input class="form-control" type="text" placeholder="Enter City Here" />
+        <form id="search">
+          <div class = "row">
+            <div class ="col-9">
+          <input
+            class="form-control"
+            type="city"
+            placeholder="Enter City Here"
+            id = "city-input"
+          />
+          </div>
+        
+        <div class ="col-3">
         <button class="button" id="button">Submit</button>
+        <br>
         <button class="button" id="currentbtn">📍</button>
+        </form>
+        </div>
+
+      </div>
         <br />
         <br />
         <div class="row">

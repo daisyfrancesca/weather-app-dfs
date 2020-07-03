@@ -22,31 +22,47 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+//display the temperature
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = response.data.name;
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = response.data.weather[0].description;
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   windElement.innerHTML = `Wind: ${Math.round(
     response.data.wind.speed * 2.237
   )} mph`;
-  let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  icon.Element.setAttribute("alt", response.ara.weather[0].description);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "d643ee59f43b44ad31e57464532264d8";
-let city = "Paris";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+//search function
 
-axios.get(apiUrl).then(displayTemperature);
+function search(city) {
+  let apiKey = "d643ee59f43b44ad31e57464532264d8";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function searchWeather(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("London");
+
+let form = document.querySelector("#search");
+form.addEventListener("sumbit", searchWeather);
