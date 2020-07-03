@@ -37,9 +37,16 @@ function displayTemperature(response) {
   )} mph`;
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.Element.setAttribute("alt", response.ara.weather[0].description);
 }
 
 let apiKey = "d643ee59f43b44ad31e57464532264d8";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=imperial`;
+let city = "Paris";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTemperature);
