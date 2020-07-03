@@ -47,3 +47,7 @@ li {
 .description {
   text-transform: capitalize;
 }
+
+.icon {
+  color: #c4fb6d;
+}
