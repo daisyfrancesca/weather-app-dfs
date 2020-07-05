@@ -63,7 +63,7 @@ function searchWeather(event) {
   search(cityInputElement.value);
 }
 
-search("Moscow");
+search("Mooresville");
 
 let form = document.querySelector("#search");
-form.addEventListener("sumbit", searchWeather);
+form.addEventListener("submit", searchWeather);
