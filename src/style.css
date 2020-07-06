@@ -61,3 +61,16 @@ li {
 .temperature .active:hover {
   text-decoration: none;
 }
+
+.row .forecast {
+  color: #393e46;
+  padding-top: 20px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
