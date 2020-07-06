@@ -63,6 +63,7 @@ li {
 }
 
 .row .forecast {
+  display: block;
   color: #393e46;
   padding-top: 20px;
   text-align: center;
@@ -80,4 +81,5 @@ h3 {
   margin: 0 auto;
   height: 48px;
   width: 48px;
+  text-align: center;
 }
