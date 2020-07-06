@@ -117,7 +117,22 @@ function displayFarenheitTemp(event) {
 
 let farenheitTemp = null;
 
-search("Mooresville");
+//for current city button
+
+function showLocation(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKeyTwo = "d643ee59f43b44ad31e57464532264d8";
+
+  let apiUrlThree = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKeyTwo}&units=imperial`;
+  axios.get(apiUrlThree).then(displayTemperature);
+}
+function acquirePosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showLocation);
+}
+
+search("London");
 
 let form = document.querySelector("#search");
 form.addEventListener("submit", searchWeather);
@@ -127,3 +142,6 @@ celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 let farenheitLink = document.querySelector("#farenheit-link");
 farenheitLink.addEventListener("click", displayFarenheitTemp);
+
+let currentbtn = document.querySelector("#currentbtn");
+currentbtn.addEventListener("click", acquirePosition);
