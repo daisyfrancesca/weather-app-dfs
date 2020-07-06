@@ -125,7 +125,9 @@ function showLocation(position) {
   let apiKeyTwo = "d643ee59f43b44ad31e57464532264d8";
 
   let apiUrlThree = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKeyTwo}&units=imperial`;
+  let apiUrlFour = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKeyTwo}&units=imperial`;
   axios.get(apiUrlThree).then(displayTemperature);
+  axios.get(apiUrlFour).then(displayForecast);
 }
 function acquirePosition(event) {
   event.preventDefault();
