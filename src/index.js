@@ -33,6 +33,8 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
+  farenheitTemp = response.data.main.temp;
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -63,7 +65,34 @@ function searchWeather(event) {
   search(cityInputElement.value);
 }
 
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  //remove the active class from the farenheit link, add it to the celsius link
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  let celsiusTemp = (farenheitTemp - 32) * (5 / 9);
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
+
+function displayFarenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  //remove the active class from the celsius link, add it to the farenheit link
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(farenheitTemp);
+}
+
+let farenheitTemp = null;
+
 search("Mooresville");
 
 let form = document.querySelector("#search");
 form.addEventListener("submit", searchWeather);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
+
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", displayFarenheitTemp);
